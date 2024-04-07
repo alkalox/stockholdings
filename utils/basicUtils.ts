@@ -34,7 +34,6 @@ const getSumOfAllCurrentValues = (
   });
 
   const sumOfAllCurrentValues = sumOfAllValuesInArray(allCurrentValues);
-  console.log('allCurrentValues', allCurrentValues);
   return sumOfAllCurrentValues;
 };
 
@@ -51,7 +50,6 @@ const getSumOfAllInvestmentValues = (
   });
 
   const sumOfAllInvestmentValues = sumOfAllValuesInArray(allInvestmentValues);
-  console.log('allInvestmentValues', allInvestmentValues);
   return sumOfAllInvestmentValues;
 };
 
@@ -64,9 +62,7 @@ const calculateTodaysPnl = (
     individualPnlValues.push(individualPnlForItem);
   });
 
-  console.log('individualPnlValues', individualPnlValues);
   const todaysPNLOfAllItems = sumOfAllValuesInArray(individualPnlValues);
-
   return todaysPNLOfAllItems;
 };
 
