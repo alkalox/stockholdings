@@ -4,9 +4,9 @@ import {indianCurrencySymbol} from '../consts/consts';
 
 type IndividualStockViewProps = {
   symbol: string;
-  quantity: string;
-  lastTradedPrice: string;
-  profitLoss: string;
+  quantity: number;
+  lastTradedPrice: number;
+  profitLoss: number;
 };
 
 const IndividualStockView = ({
