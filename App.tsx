@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {
   ScrollView,
   StatusBar,
-  StyleSheet,
-  Text,
   useColorScheme,
   View,
   FlatList,
@@ -12,6 +10,7 @@ import {
 
 import Header from './components/Header';
 import IndividualStockView from './components/IndividualStock';
+import BottomSummary from './components/BottomSummary';
 import getUsersStockHoldings from './apis/fetchHoldings';
 import {IndividualStockHoldingTypes} from './apis/types';
 
@@ -19,7 +18,7 @@ function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const [loading, setLoading] = useState(true);
-  const [userStockHoldings, setUserStockHoldings] = useState<
+  const [userStockHoldingsData, setUserStockHoldingsData] = useState<
     IndividualStockHoldingTypes[]
   >([]);
 
@@ -32,7 +31,7 @@ function App(): React.JSX.Element {
     const stockHoldingData = await getUsersStockHoldings();
     if (stockHoldingData !== null && stockHoldingData.length > 0) {
       setLoading(false);
-      setUserStockHoldings(stockHoldingData);
+      setUserStockHoldingsData(stockHoldingData);
     }
   };
 
@@ -56,13 +55,16 @@ function App(): React.JSX.Element {
   return (
     <>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        contentContainerStyle={{flex: 1, backgroundColor: 'lightgrey'}}>
         <Header title="Upstox Holdings" />
         <FlatList
-          data={userStockHoldings}
+          data={userStockHoldingsData}
           renderItem={renderStockItem}
           keyExtractor={item => item.symbol}
         />
+        <BottomSummary userStockHoldingsData={userStockHoldingsData} />
       </ScrollView>
     </>
   );

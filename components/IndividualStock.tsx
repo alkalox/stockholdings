@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
+    backgroundColor: 'white',
   },
   leftContent: {
     flex: 1,
