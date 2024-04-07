@@ -32,19 +32,19 @@ const BottomSummary = ({
         <View style={styles.expandedContent}>
           <View style={styles.row}>
             <Text style={styles.textHeading}>Current Value:</Text>
-            <Text>
+            <Text style={styles.textValue}>
               {indianCurrencySymbol} {summaryOfHoldingsData.currentValue}
             </Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.textHeading}>Total Investment:</Text>
-            <Text>
+            <Text style={styles.textValue}>
               {indianCurrencySymbol} {summaryOfHoldingsData.totalInvestment}
             </Text>
           </View>
           <View style={styles.row}>
-            <Text style={styles.textHeading}>Today's Profit and Loss:</Text>
-            <Text>
+            <Text style={styles.textHeading}>Today's Profit & Loss:</Text>
+            <Text style={styles.textValue}>
               {indianCurrencySymbol} {summaryOfHoldingsData.todaysPNL}
             </Text>
           </View>
@@ -53,7 +53,7 @@ const BottomSummary = ({
       <View style={styles.expandedContent}>
         <View style={styles.row}>
           <Text style={styles.textHeading}>Profit & Loss</Text>
-          <Text>
+          <Text style={[styles.textValue, styles.extraBottomMargin]}>
             {indianCurrencySymbol} {summaryOfHoldingsData.totalPNL}
           </Text>
         </View>
@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#ccc',
     paddingHorizontal: 20,
-    paddingVertical: 2,
   },
   arrowButton: {
     justifyContent: 'center',
@@ -89,7 +88,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 5,
   },
-  textHeading: {fontSize: 16, fontWeight: 'bold', color: '#1c1c1c'},
+  extraBottomMargin: {
+    marginBottom: 10,
+  },
+  textHeading: {fontSize: 18, fontWeight: 'bold', color: '#1c1c1c'},
+  textValue: {fontSize: 16, fontWeight: 'normal', color: '#1c1c1c'},
 });
 
 export default BottomSummary;

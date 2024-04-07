@@ -24,7 +24,7 @@ const IndividualStockView = ({
       <View style={styles.rightContent}>
         <Text style={styles.text}>
           LTP:{' '}
-          <Text style={{fontWeight: 'bold', color: '#000'}}>
+          <Text style={styles.ltpTextStyle}>
             {indianCurrencySymbol} {lastTradedPrice}
           </Text>
         </Text>
@@ -64,7 +64,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     marginBottom: 2,
+    color: '#1c1c1c',
+    fontWeight: 'normal',
   },
+  ltpTextStyle: {fontWeight: 'bold', color: '#000'},
 });
 
 export default IndividualStockView;

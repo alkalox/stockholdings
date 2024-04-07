@@ -31,7 +31,7 @@ function App(): React.JSX.Element {
     const stockHoldingData = await getUsersStockHoldings();
     if (stockHoldingData !== null && stockHoldingData.length > 0) {
       setLoading(false);
-      setUserStockHoldingsData(stockHoldingData);
+      setUserStockHoldingsData([...stockHoldingData]);
     }
   };
 
@@ -58,7 +58,7 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={{flex: 1, backgroundColor: 'lightgrey'}}>
-        <Header title="Upstox Holdings" />
+        <Header title="Upstox Holding" />
         <FlatList
           data={userStockHoldingsData}
           renderItem={renderStockItem}
