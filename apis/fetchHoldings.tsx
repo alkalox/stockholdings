@@ -19,8 +19,6 @@ const getUsersStockHoldings = async (): Promise<
     const userHoldings = data.userHolding;
     return userHoldings;
   } catch (error) {
-    // Error handling
-    console.error('There was a problem with your fetch operation:', error);
     return [];
   }
 };

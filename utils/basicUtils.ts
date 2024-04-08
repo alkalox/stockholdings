@@ -25,7 +25,7 @@ const getSumOfAllCurrentValues = (
   userHoldingsData: IndividualStockHoldingTypes[],
 ): number => {
   const allCurrentValues: number[] = [];
-  userHoldingsData.forEach(item => {
+  userHoldingsData?.forEach(item => {
     const currentValueForItem = calculateCurrentValueIndividual(
       item.ltp,
       item.quantity,
@@ -41,7 +41,7 @@ const getSumOfAllInvestmentValues = (
   userHoldingsData: IndividualStockHoldingTypes[],
 ): number => {
   const allInvestmentValues: number[] = [];
-  userHoldingsData.forEach(item => {
+  userHoldingsData?.forEach(item => {
     const investmentValueForItem = calculateInvestmentValueIndividual(
       item.avgPrice,
       item.quantity,
@@ -57,7 +57,7 @@ const calculateTodaysPnl = (
   userHoldingsData: IndividualStockHoldingTypes[],
 ) => {
   const individualPnlValues: number[] = [];
-  userHoldingsData.forEach(item => {
+  userHoldingsData?.forEach(item => {
     const individualPnlForItem = (item.close - item.ltp) * item.quantity;
     individualPnlValues.push(individualPnlForItem);
   });
